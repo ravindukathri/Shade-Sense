@@ -1,0 +1,2414 @@
+[
+    {
+        "id": "8a949a44a5196d72",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "two/ldr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "790dd0a250e91c39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "42fb2bea7c67eb78"
+            ]
+        ]
+    },
+    {
+        "id": "d45f83c17851d350",
+        "type": "ui_gauge",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "group": "fb4fb5f54831eae4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Outdoor Brightness",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 930,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d1c224747e85e3eb",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "two/servo_pos",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "790dd0a250e91c39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 820,
+        "wires": [
+            [
+                "2543fc586c94d2f6"
+            ]
+        ]
+    },
+    {
+        "id": "00de92be8fa93d18",
+        "type": "ui_gauge",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "group": "509fe3865c3ba228",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Servo Position",
+        "label": "degree",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "140",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "ec7d64da455d4886",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "two/servo",
+        "topic": "two/servo",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 960,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "e70efa4d869ac62d",
+        "type": "ui_slider",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "label": "Servo Slider",
+        "tooltip": "",
+        "group": "990d6e13b17cf5e0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "140",
+        "step": "5",
+        "className": "",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "102f7f9815315e82"
+            ]
+        ]
+    },
+    {
+        "id": "85a0225c507765b7",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Device 2 - Window",
+        "info": "",
+        "x": 170,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a1d61c2db89069df",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Device 3 - Roof",
+        "info": "",
+        "x": 160,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b0ad8b76d92a8675",
+        "type": "ui_slider",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "label": "LED Slider",
+        "tooltip": "",
+        "group": "21e3be0586546706",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "className": "",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "42ec6c19271a4cfc"
+            ]
+        ]
+    },
+    {
+        "id": "42ec6c19271a4cfc",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "payload to string",
+        "func": "msg.payload = String(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 440,
+        "wires": [
+            [
+                "fa2d94e30d2c2478"
+            ]
+        ]
+    },
+    {
+        "id": "fa2d94e30d2c2478",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "three/position",
+        "topic": "three/position",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 940,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f0f56f95271ffc95",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "three/pwm",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "790dd0a250e91c39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "b9725a0cc379a996"
+            ]
+        ]
+    },
+    {
+        "id": "b9725a0cc379a996",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "payload to num",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 520,
+        "wires": [
+            [
+                "174e1e08890d32d4"
+            ]
+        ]
+    },
+    {
+        "id": "174e1e08890d32d4",
+        "type": "ui_gauge",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "group": "03a210ba7f9ab21b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Home LED Brightness",
+        "label": "Pulses",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 920,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "8e350eccfce1fea0",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "one/ldr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "790dd0a250e91c39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "5a6bd9cb36fcef3c"
+            ]
+        ]
+    },
+    {
+        "id": "2bf469172b9dec80",
+        "type": "ui_gauge",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "group": "06c4c6e4dfad3aca",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Indoor Brightness",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 930,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1596ebb2e011d7e2",
+        "type": "ui_slider",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "label": "Setpoint Slider",
+        "tooltip": "",
+        "group": "ce1a2bbd54186227",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "setpoint",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "10",
+        "x": 200,
+        "y": 4020,
+        "wires": [
+            [
+                "834b80e17d8f51e0"
+            ]
+        ]
+    },
+    {
+        "id": "3ce7b7ea96b0bd47",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "topic": "ldr/value",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "790dd0a250e91c39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 4080,
+        "wires": [
+            [
+                "c1be5a362b8b53cb"
+            ]
+        ]
+    },
+    {
+        "id": "c1be5a362b8b53cb",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Convert and Store LDR",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"ldrvalue\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 4080,
+        "wires": [
+            [
+                "330efd7e58e4c914"
+            ]
+        ]
+    },
+    {
+        "id": "330efd7e58e4c914",
+        "type": "ui_gauge",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "group": "b389b4ade06a3bdb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "LDR Value",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 4080,
+        "wires": []
+    },
+    {
+        "id": "834b80e17d8f51e0",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Convert and Store Setpoint",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"setpoint\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 4020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "trigger_loop",
+        "type": "inject",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Periodic Trigger",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 4160,
+        "wires": [
+            [
+                "check_loop_enabled"
+            ]
+        ]
+    },
+    {
+        "id": "check_loop_enabled",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Check Loop Enabled",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) {\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 4160,
+        "wires": [
+            [
+                "check_adjust_led"
+            ]
+        ]
+    },
+    {
+        "id": "check_adjust_led",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Check and Adjust LED",
+        "func": "let ldrValue = flow.get(\"ldrvalue\") || 0;\nlet setpoint = flow.get(\"setpoint\") || 0;\nlet ledValue = flow.get(\"ledvalue\") || 0;\n\n// Define a tolerance value to reduce oscillations\nlet tolerance = 5;\n\nif (Math.abs(ldrValue - setpoint) > tolerance) {\n    if (ldrValue < setpoint) {\n        // Increase LED value if LDR value is less than setpoint\n        ledValue = Math.min(ledValue + 5, 255);\n    } else {\n        // Decrease LED value if LDR value is greater than setpoint\n        ledValue = Math.max(ledValue - 5, 0);\n    }\n\n    // Update LED value in flow context and send the new value\n    flow.set(\"ledvalue\", ledValue);\n    msg.payload = ledValue;\n    msg.topic = \"led/value\";\n    return msg;\n} else {\n    // If the LDR valu is within the tolerance of the setpoint, do nothing\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 4160,
+        "wires": [
+            [
+                "042c4da010466f11",
+                "70355a014b2bb4f0",
+                "1a21e9d8de289b0a"
+            ]
+        ]
+    },
+    {
+        "id": "042c4da010466f11",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 970,
+        "y": 4160,
+        "wires": []
+    },
+    {
+        "id": "button_toggle_loop",
+        "type": "ui_button",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Toggle Loop",
+        "group": "ce1a2bbd54186227",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "{{loop_enabled ? \"Automatic\" : \"Manual\"}} Loop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "toggle",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 190,
+        "y": 3940,
+        "wires": [
+            [
+                "toggle_loop_state"
+            ]
+        ]
+    },
+    {
+        "id": "toggle_loop_state",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Toggle Loop State",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nflow.set(\"loop_enabled\", !loopEnabled);\nmsg.loop_enabled = !loopEnabled;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 3940,
+        "wires": [
+            [
+                "button_toggle_loop"
+            ]
+        ]
+    },
+    {
+        "id": "70355a014b2bb4f0",
+        "type": "ui_gauge",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "group": "b389b4ade06a3bdb",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 4220,
+        "wires": []
+    },
+    {
+        "id": "d45dfdca3ed32bbe",
+        "type": "ui_slider",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "label": "led manual",
+        "tooltip": "",
+        "group": "ce1a2bbd54186227",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "className": "",
+        "x": 190,
+        "y": 4240,
+        "wires": [
+            [
+                "e9213a2091b8f4a6"
+            ]
+        ]
+    },
+    {
+        "id": "e9213a2091b8f4a6",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "payload to string",
+        "func": "flow.set(\"ledvalue\", msg.payload);\nmsg.payload = String(msg.payload);\nmsg.topic = \"led/value\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 4240,
+        "wires": [
+            [
+                "70355a014b2bb4f0",
+                "d9a740702ccb7d53"
+            ]
+        ]
+    },
+    {
+        "id": "d9a740702ccb7d53",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 970,
+        "y": 4280,
+        "wires": []
+    },
+    {
+        "id": "5159d78cfce20a17",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "LED LDR Controller",
+        "info": "",
+        "x": 210,
+        "y": 3880,
+        "wires": []
+    },
+    {
+        "id": "1a21e9d8de289b0a",
+        "type": "debug",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 4120,
+        "wires": []
+    },
+    {
+        "id": "a8df0405defc2ce8",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Servo Controller",
+        "info": "",
+        "x": 160,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "102f7f9815315e82",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Convert and Store Setpoint",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"setpoint\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 720,
+        "wires": [
+            [
+                "ec7d64da455d4886"
+            ]
+        ]
+    },
+    {
+        "id": "5a6bd9cb36fcef3c",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Convert and Store Indoor LDR",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"indoorldr\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 140,
+        "wires": [
+            [
+                "2bf469172b9dec80"
+            ]
+        ]
+    },
+    {
+        "id": "42fb2bea7c67eb78",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Convert and Store Outdoor LDR",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"outdoorldr\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "d45f83c17851d350"
+            ]
+        ]
+    },
+    {
+        "id": "2543fc586c94d2f6",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Convert and Store Servo Position (value)",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"servovalue\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 820,
+        "wires": [
+            [
+                "00de92be8fa93d18"
+            ]
+        ]
+    },
+    {
+        "id": "a181fcbe92f8b920",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Device 1 - Indoor",
+        "info": "",
+        "x": 160,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "15df4d596b7ad593",
+        "type": "inject",
+        "z": "c02c64abd80e4e76",
+        "name": "Periodic Trigger",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 166,
+        "y": 1233,
+        "wires": [
+            [
+                "842b1ca91dec0040"
+            ]
+        ]
+    },
+    {
+        "id": "842b1ca91dec0040",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Enabled",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) {\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 416,
+        "y": 1233,
+        "wires": [
+            [
+                "ded023748c0233bf",
+                "f5f2146227c0010d"
+            ]
+        ]
+    },
+    {
+        "id": "7a8c8caa51f86f89",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check and Adjust Servo",
+        "func": "let ldrValue = flow.get(\"indoorldr\") || 0;\nlet setpoint = flow.get(\"setpoint\") || 0;\nlet servoValue = flow.get(\"servovalue\") || 0;\nlet servoSet = flow.get(\"servoset\") || 0;\n\n// Define a tolerance value to reduce oscillations\nlet tolerance = 3;\n\nif (Math.abs(ldrValue - setpoint) > tolerance) {\n    if (ldrValue < setpoint) {\n        // Increase LED value if LDR value is less than setpoint\n        servoSet = Math.min(servoValue + 5, 140);\n    } else {\n        // Decrease LED value if LDR value is greater than setpoint\n        servoSet = Math.max(servoValue - 5, 0);\n        \n    }\n\n    // Update LED value in flow context and send the new value\n    flow.set(\"servoset\", servoSet);\n    msg.payload = servoSet;\n    msg.topic = \"two/servo\";\n    return msg;\n} else {\n    // If the LDR valu is within the tolerance of the setpoint, do nothing\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1220,
+        "wires": [
+            [
+                "7874ff1f40f09fcb",
+                "207d98140e1d8c1a",
+                "00de92be8fa93d18"
+            ]
+        ]
+    },
+    {
+        "id": "7874ff1f40f09fcb",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 1090,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "207d98140e1d8c1a",
+        "type": "debug",
+        "z": "c02c64abd80e4e76",
+        "name": "Servo Set Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "d526e9125f7788b7",
+        "type": "ui_slider",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "label": "Setpoint Slider",
+        "tooltip": "",
+        "group": "3c2e05d8a7e27e2d",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "setpoint",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "10",
+        "className": "",
+        "x": 160,
+        "y": 1340,
+        "wires": [
+            [
+                "a679df91dba34aa1"
+            ]
+        ]
+    },
+    {
+        "id": "a679df91dba34aa1",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Convert and Store Setpoint",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"setpoint\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1340,
+        "wires": [
+            [
+                "f255732850dba3a5"
+            ]
+        ]
+    },
+    {
+        "id": "f4dd0652c9d7af28",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Servo Controller",
+        "info": "",
+        "x": 160,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "28ed768ee7467025",
+        "type": "inject",
+        "z": "c02c64abd80e4e76",
+        "name": "Periodic Trigger",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 1800,
+        "wires": [
+            [
+                "3559c3242046856d"
+            ]
+        ]
+    },
+    {
+        "id": "89f4831a565e7332",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check and Adjust Servo",
+        "func": "let ldrValue = flow.get(\"outdoorldr\") || 0;\nlet setpoint = flow.get(\"setpoint\") || 0;\nlet servoValue = flow.get(\"servovalue\") || 0;\nlet servoSet = flow.get(\"servoset\") || 0;\nlet night = flow.get(\"night\");\n\n\nif(ldrValue <= 10)\n{\n    servoSet = 0;\n    night = 1;\n    flow.set(\"night\", night);\n    flow.set(\"servoset\", servoSet);\n    msg.payload = servoSet;\n    msg.topic = \"two/servo\";\n    return msg;\n}\nelse{\n    night = 0;\n    flow.set(\"night\", night);\n    return null;\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1800,
+        "wires": [
+            [
+                "f0e9d09617aeb4b9"
+            ]
+        ]
+    },
+    {
+        "id": "f0e9d09617aeb4b9",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 1050,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "b6484a79953845f6",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check and Set Indoor LED",
+        "func": "let ldrValue = flow.get(\"outdoorldr\") || 0;\nlet setpoint = flow.get(\"setpoint\") || 0;\nlet servoValue = flow.get(\"servovalue\") || 0;\nlet servoSet = flow.get(\"servoset\") || 0;\nlet ledSet = flow.get(\"ledset\") || 0;\n\n\nif(ldrValue <= 10)\n{\n    ledSet = 255;\n    flow.set(\"ledset\", ledSet);\n    msg.payload = ledSet;\n    msg.topic = \"three/position\";\n    return msg;\n}\nelse{\n    ledSet = 0;\n    flow.set(\"ledset\", ledSet);\n    msg.payload = ledSet;\n    msg.topic = \"three/position\";\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1860,
+        "wires": [
+            [
+                "39d9f21bd9d4a365"
+            ]
+        ]
+    },
+    {
+        "id": "39d9f21bd9d4a365",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 1050,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "3559c3242046856d",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Enabled",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) {\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1800,
+        "wires": [
+            [
+                "89f4831a565e7332",
+                "b6484a79953845f6"
+            ]
+        ]
+    },
+    {
+        "id": "ded023748c0233bf",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Night Check",
+        "func": "let night = flow.get(\"night\");\n\nif(night==0)\n{\nreturn msg;\n}\nelse\n{\n    return null;\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1220,
+        "wires": [
+            [
+                "7a8c8caa51f86f89"
+            ]
+        ]
+    },
+    {
+        "id": "f5f2146227c0010d",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Turn off Indoor LED",
+        "func": "let night = flow.get(\"night\");\nlet ledSet = flow.get(\"ledset\");\n\nif(night==0)\n{\nledSet = 0;\n    flow.set(\"ledset\", ledSet);\n    msg.payload = ledSet;\n    msg.topic = \"three/position\";\n    return msg;\n}\nelse\n{\n    return null;\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 1280,
+        "wires": [
+            [
+                "f0e943c1dbf630ac"
+            ]
+        ]
+    },
+    {
+        "id": "f0e943c1dbf630ac",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 1090,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "63beb7284ca67fbd",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "",
+        "topic": "two/ldr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1a424899a0c03628",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 4480,
+        "wires": [
+            [
+                "change_live_update",
+                "trigger_check_dead"
+            ]
+        ]
+    },
+    {
+        "id": "change_live_update",
+        "type": "change",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Set dead1 to 0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dead1",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "x": 390,
+        "y": 4440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "trigger_check_dead",
+        "type": "trigger",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Trigger if no update",
+        "op1": "",
+        "op2": "{\"dead1\":1}",
+        "op1type": "nul",
+        "op2type": "json",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 390,
+        "y": 4520,
+        "wires": [
+            [
+                "change_set_dead"
+            ]
+        ]
+    },
+    {
+        "id": "change_set_dead",
+        "type": "change",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Set dead1 to 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dead1",
+                "pt": "flow",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "x": 590,
+        "y": 4520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aac747ea18e1e8d2",
+        "type": "ui_button",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Toggle Loop",
+        "group": "bfa78987364bf005",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "{{loop_enabled ? \"Automatic\" : \"Manual\"}} Loop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "toggle",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 230,
+        "y": 3760,
+        "wires": [
+            [
+                "3dc6c7c444f1c3b4"
+            ]
+        ]
+    },
+    {
+        "id": "3dc6c7c444f1c3b4",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Toggle Loop State",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\n\nif (msg.payload === \"toggle\") {\n    // Toggle the state\n    loopEnabled = !loopEnabled;\n} else if (msg.payload === \"1\") {\n    // Enable loop\n    loopEnabled = true;\n} else if (msg.payload === \"0\") {\n    // Disable loop\n    loopEnabled = false;\n}\n\nflow.set(\"loop_enabled\", loopEnabled);\nmsg.loop_enabled = loopEnabled;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 3760,
+        "wires": [
+            [
+                "aac747ea18e1e8d2"
+            ]
+        ]
+    },
+    {
+        "id": "f94e7a40b45e2a7a",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Mode Control",
+        "topic": "main/mode",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "your_broker_id_here",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 3700,
+        "wires": [
+            [
+                "3dc6c7c444f1c3b4"
+            ]
+        ]
+    },
+    {
+        "id": "01646b89abc48a2d",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Checking the dead bands",
+        "info": "",
+        "x": 230,
+        "y": 4380,
+        "wires": []
+    },
+    {
+        "id": "9f28462f81901989",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "d": true,
+        "name": "Updating modes from messages",
+        "info": "",
+        "x": 270,
+        "y": 3640,
+        "wires": []
+    },
+    {
+        "id": "5b116865ae10f208",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Disabled (Manual)",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) {\n    return null;\n} else {\n     return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 1540,
+        "wires": [
+            [
+                "6b8bd8cd583b1a74"
+            ]
+        ]
+    },
+    {
+        "id": "bc7a91a6568a2b6b",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Enabled (Automatic)",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) {\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1620,
+        "wires": [
+            [
+                "a7f61bec75fee494"
+            ]
+        ]
+    },
+    {
+        "id": "5fa993f5b0a5cca5",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "main/number",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "790dd0a250e91c39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 1580,
+        "wires": [
+            [
+                "4e79c5189b3c4b44"
+            ]
+        ]
+    },
+    {
+        "id": "4e79c5189b3c4b44",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Convert and Store Incoming Number",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"incomingvalue\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1580,
+        "wires": [
+            [
+                "5b116865ae10f208",
+                "bc7a91a6568a2b6b"
+            ]
+        ]
+    },
+    {
+        "id": "a7f61bec75fee494",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Set the Setpoints",
+        "func": "let incoming = flow.get(\"incomingvalue\");\nlet Setpoint = flow.get(\"setpoint\");\n\nif(incoming == 1)\n{\nSetpoint = 25;\nflow.set(\"setpoint\", Setpoint);\nmsg.payload = Setpoint;\nreturn msg;\n}\nelse if(incoming == 2)\n{\nSetpoint = 50;\nflow.set(\"setpoint\", Setpoint);\nmsg.payload = Setpoint;\nreturn msg;\n}\nelse if(incoming == 3)\n{\nSetpoint = 75;\nflow.set(\"setpoint\", Setpoint);\nmsg.payload = Setpoint;\nreturn msg;\n}\nelse{\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 1620,
+        "wires": [
+            [
+                "f255732850dba3a5"
+            ]
+        ]
+    },
+    {
+        "id": "6b8bd8cd583b1a74",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Set the setpoint",
+        "func": "let incoming = flow.get(\"incomingvalue\");\nlet servoSet = flow.get(\"servoset\") || 0;\n\nif(incoming == 1)\n{\nservoSet = 0;\nflow.set(\"servoset\", servoSet);\nmsg.payload = servoSet;\nmsg.topic = \"two/servo\";\nreturn msg;\n}\nelse if(incoming == 2)\n{\nservoSet = 70;\nflow.set(\"servoset\", servoSet);\nmsg.payload = servoSet;\nmsg.topic = \"two/servo\";\nreturn msg;\n}\nelse if(incoming == 3)\n{\nservoSet = 140;\nflow.set(\"servoset\", servoSet);\nmsg.payload = servoSet;\nmsg.topic = \"two/servo\";\nreturn msg;\n}\nelse{\n    return null;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 1540,
+        "wires": [
+            [
+                "6d1c8fd4f0d2990f",
+                "65158c273cc96946"
+            ]
+        ]
+    },
+    {
+        "id": "044f437953805c8d",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Set values from remote",
+        "info": "",
+        "x": 180,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "6d1c8fd4f0d2990f",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 1290,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "f0371cfe37682985",
+        "type": "ui_button",
+        "z": "c02c64abd80e4e76",
+        "name": "Toggle Loop",
+        "group": "3c2e05d8a7e27e2d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "{{loop_enabled ? \"Automatic\" : \"Manual\"}} Mode",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "toggle",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 150,
+        "y": 1100,
+        "wires": [
+            [
+                "87176a6357db23e1"
+            ]
+        ]
+    },
+    {
+        "id": "87176a6357db23e1",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Toggle Loop State",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\n\nif (msg.payload === \"toggle\") {\n    // Toggle the state\n    loopEnabled = !loopEnabled;\n} else if (msg.payload === \"1\") {\n    // Enable loop\n    loopEnabled = true;\n} else if (msg.payload === \"0\") {\n    // Disable loop\n    loopEnabled = false;\n}\n\nflow.set(\"loop_enabled\", loopEnabled);\nmsg.loop_enabled = loopEnabled;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 1100,
+        "wires": [
+            [
+                "f0371cfe37682985",
+                "acc1e4504152af80"
+            ]
+        ]
+    },
+    {
+        "id": "40b015359062d738",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "Mode Control",
+        "topic": "main/mode",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1a424899a0c03628",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 1040,
+        "wires": [
+            [
+                "87176a6357db23e1",
+                "f4d3c4017cfead6b"
+            ]
+        ]
+    },
+    {
+        "id": "74d4e2d4274f5386",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Updating modes from messages",
+        "info": "",
+        "x": 210,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "acc1e4504152af80",
+        "type": "debug",
+        "z": "c02c64abd80e4e76",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "f4d3c4017cfead6b",
+        "type": "debug",
+        "z": "c02c64abd80e4e76",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "4f2cfc31d0ec5f11",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Disabled (Manual)",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) {\n    return null;\n} else {\n    msg.payload = '0';\n    msg.topic = \"main/setmode\";\n    return msg;\n    \n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 2000,
+        "wires": [
+            [
+                "c66a9a9d98cafb91"
+            ]
+        ]
+    },
+    {
+        "id": "66ecd076e0d0e79e",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Enabled (Automatic)",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) {\n    msg.payload = '1';\n    msg.topic = \"main/setmode\";\n    return msg;\n    \n} \nelse {\n    return null;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 2080,
+        "wires": [
+            [
+                "c66a9a9d98cafb91"
+            ]
+        ]
+    },
+    {
+        "id": "dc9c21610d64486e",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "LED (IN HOUSE CONTROL)",
+        "info": "",
+        "x": 200,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "632b4c6ec8fd5318",
+        "type": "inject",
+        "z": "c02c64abd80e4e76",
+        "name": "Periodic Trigger",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 2040,
+        "wires": [
+            [
+                "4f2cfc31d0ec5f11",
+                "66ecd076e0d0e79e"
+            ]
+        ]
+    },
+    {
+        "id": "c66a9a9d98cafb91",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "main/setmode",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 1020,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "f255732850dba3a5",
+        "type": "ui_text",
+        "z": "c02c64abd80e4e76",
+        "group": "3c2e05d8a7e27e2d",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "setpoint print",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1270,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "65158c273cc96946",
+        "type": "debug",
+        "z": "c02c64abd80e4e76",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1280,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "f9d527f053175f1e",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Indoor Calibration",
+        "info": "",
+        "x": 170,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "1",
+        "type": "ui_button",
+        "z": "c02c64abd80e4e76",
+        "name": "Indoor Calibration",
+        "group": "bfa78987364bf005",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Indoor Calibration",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "start",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 2300,
+        "wires": [
+            [
+                "435da411b9f6d31f"
+            ]
+        ]
+    },
+    {
+        "id": "2",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Start Calibration",
+        "func": "if (msg.payload === \"start\") {\n    msg.payload = \"Calibrating Indoor LDR\";\n    msg.reset = true; // Add a custom field to differentiate when to reset the button state\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 2300,
+        "wires": [
+            [
+                "4e83fa6573119aa6"
+            ]
+        ]
+    },
+    {
+        "id": "4",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Reset Button",
+        "func": "if (msg.payload === 0) {\n    msg.payload = \"Indoor Calibration Completed\";\n} else {\n    return null; // Stop processing if payload is not 0\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 2380,
+        "wires": [
+            [
+                "4e83fa6573119aa6"
+            ]
+        ]
+    },
+    {
+        "id": "435da411b9f6d31f",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Disabled",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) \n{\n    return null;\n} else \n{\n    \n    return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 2300,
+        "wires": [
+            [
+                "2",
+                "d532a82fdd659d9c"
+            ]
+        ]
+    },
+    {
+        "id": "d532a82fdd659d9c",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "main/indoorcalibration",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a424899a0c03628",
+        "x": 1000,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "55d9751a0bc373ed",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "main/indoorcalibration1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1a424899a0c03628",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 2380,
+        "wires": [
+            [
+                "0bc653862b8e7738"
+            ]
+        ]
+    },
+    {
+        "id": "d602ef173ba1e43d",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "main/setservo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "790dd0a250e91c39",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 2480,
+        "wires": [
+            [
+                "31cba2bda5f8ec79"
+            ]
+        ]
+    },
+    {
+        "id": "d4a53563c43775cf",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "two/servo",
+        "topic": "two/servo",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "790dd0a250e91c39",
+        "x": 1040,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "31cba2bda5f8ec79",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Convert and Store Setpoint",
+        "func": "msg.payload = parseInt(msg.payload, 10);\nflow.set(\"ind_cal_setpoint\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 2480,
+        "wires": [
+            [
+                "d4a53563c43775cf"
+            ]
+        ]
+    },
+    {
+        "id": "0bc653862b8e7738",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "payload to num",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2380,
+        "wires": [
+            [
+                "4"
+            ]
+        ]
+    },
+    {
+        "id": "4e83fa6573119aa6",
+        "type": "ui_text",
+        "z": "c02c64abd80e4e76",
+        "group": "bfa78987364bf005",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Calibration Status",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1010,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "6c93f43741da4f70",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Outdoor Calibration",
+        "info": "",
+        "x": 170,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "4a169e6c3f9d9ba3",
+        "type": "ui_button",
+        "z": "c02c64abd80e4e76",
+        "name": "Outdoor Calibration",
+        "group": "cc838dc1c18a2319",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Outdoor Calibration",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "start",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 170,
+        "y": 2820,
+        "wires": [
+            [
+                "cfdeb7be89d92cfb"
+            ]
+        ]
+    },
+    {
+        "id": "fd83baddfe68e093",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Start Calibration",
+        "func": "if (msg.payload === \"start\") {\n    msg.payload = \"Calibrating Outdoor LDR\";\n    msg.reset = true; // Add a custom field to differentiate when to reset the button state\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 2820,
+        "wires": [
+            [
+                "ab7ac462c1c8b494"
+            ]
+        ]
+    },
+    {
+        "id": "d95d6c892d5b5be6",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Reset Button",
+        "func": "if (msg.payload === 0) {\n    msg.payload = \"Outdoor Calibration Completed\";\n} else {\n    return null; // Stop processing if payload is not 0\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 2900,
+        "wires": [
+            [
+                "ab7ac462c1c8b494"
+            ]
+        ]
+    },
+    {
+        "id": "cfdeb7be89d92cfb",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "Check Loop Disabled",
+        "func": "let loopEnabled = flow.get(\"loop_enabled\") || false;\nif (loopEnabled) \n{\n    return null;\n} else \n{\n    \n    return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 2820,
+        "wires": [
+            [
+                "fd83baddfe68e093",
+                "5813468862c6301e"
+            ]
+        ]
+    },
+    {
+        "id": "5813468862c6301e",
+        "type": "mqtt out",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "main/outdoorcalibration",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1a424899a0c03628",
+        "x": 750,
+        "y": 2760,
+        "wires": []
+    },
+    {
+        "id": "eac381e2a81f298f",
+        "type": "mqtt in",
+        "z": "c02c64abd80e4e76",
+        "name": "",
+        "topic": "main/outdoorcalibration1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1a424899a0c03628",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 2900,
+        "wires": [
+            [
+                "b6ea2cddea32919c"
+            ]
+        ]
+    },
+    {
+        "id": "b6ea2cddea32919c",
+        "type": "function",
+        "z": "c02c64abd80e4e76",
+        "name": "payload to num",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 2900,
+        "wires": [
+            [
+                "d95d6c892d5b5be6"
+            ]
+        ]
+    },
+    {
+        "id": "ab7ac462c1c8b494",
+        "type": "ui_text",
+        "z": "c02c64abd80e4e76",
+        "group": "cc838dc1c18a2319",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Calibration Status",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1010,
+        "y": 2860,
+        "wires": []
+    },
+    {
+        "id": "ad9b4fe12e6e75b4",
+        "type": "comment",
+        "z": "c02c64abd80e4e76",
+        "name": "Error Window",
+        "info": "",
+        "x": 130,
+        "y": 3060,
+        "wires": []
+    },
+    {
+        "id": "5ea308084a067737",
+        "type": "ui_text",
+        "z": "c02c64abd80e4e76",
+        "group": "d8658784d4669069",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Error Status",
+        "format": "No errors found.",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 290,
+        "y": 3160,
+        "wires": []
+    },
+    {
+        "id": "790dd0a250e91c39",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.199.85",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "fb4fb5f54831eae4",
+        "type": "ui_group",
+        "name": "Outdoor Brightness",
+        "tab": "a217e00776a55e8d",
+        "order": 2,
+        "disp": true,
+        "width": 4,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "509fe3865c3ba228",
+        "type": "ui_group",
+        "name": "Window Servo",
+        "tab": "a217e00776a55e8d",
+        "order": 4,
+        "disp": true,
+        "width": 4,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "990d6e13b17cf5e0",
+        "type": "ui_group",
+        "name": "Servo Control",
+        "tab": "a217e00776a55e8d",
+        "order": 6,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "21e3be0586546706",
+        "type": "ui_group",
+        "name": "LED Control",
+        "tab": "a217e00776a55e8d",
+        "order": 7,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "03a210ba7f9ab21b",
+        "type": "ui_group",
+        "name": "Home LED",
+        "tab": "a217e00776a55e8d",
+        "order": 5,
+        "disp": true,
+        "width": 4,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "06c4c6e4dfad3aca",
+        "type": "ui_group",
+        "name": "Indoor",
+        "tab": "a217e00776a55e8d",
+        "order": 3,
+        "disp": true,
+        "width": 4,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce1a2bbd54186227",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "576aafa51f791a58",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "b389b4ade06a3bdb",
+        "type": "ui_group",
+        "name": "Testing",
+        "tab": "576aafa51f791a58",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3c2e05d8a7e27e2d",
+        "type": "ui_group",
+        "name": "Buttons",
+        "tab": "a217e00776a55e8d",
+        "order": 1,
+        "disp": false,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1a424899a0c03628",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.199.85",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "bfa78987364bf005",
+        "type": "ui_group",
+        "name": "Indoor",
+        "tab": "4bf3d9991d2a2f07",
+        "order": 1,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "your_broker_id_here",
+        "type": "mqtt-broker",
+        "name": "Your MQTT Broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "cc838dc1c18a2319",
+        "type": "ui_group",
+        "name": "Outdoor",
+        "tab": "4bf3d9991d2a2f07",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d8658784d4669069",
+        "type": "ui_group",
+        "name": "Error Window",
+        "tab": "4bf3d9991d2a2f07",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a217e00776a55e8d",
+        "type": "ui_tab",
+        "name": "ShadeSense",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "576aafa51f791a58",
+        "type": "ui_tab",
+        "name": "Testing",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": true,
+        "hidden": true
+    },
+    {
+        "id": "4bf3d9991d2a2f07",
+        "type": "ui_tab",
+        "name": "Calibration",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
